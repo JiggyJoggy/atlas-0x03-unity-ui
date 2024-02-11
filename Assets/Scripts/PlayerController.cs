@@ -48,7 +48,11 @@ public class PlayerController : MonoBehaviour
 
         if (health == 0)
         {
-            Debug.Log("Game Over!");
+            winLoseBG.gameObject.SetActive(true);
+            winLoseText.text = "Game Over!";
+            winLoseText.color = Color.white;
+            winLoseBG.color = Color.red;
+
             health = 5;
             score = 0;
 
