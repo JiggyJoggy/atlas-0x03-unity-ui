@@ -15,10 +15,14 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
     public Text scoreText;
 
+    public Text winLoseText;
+    public Image winLoseBG;
+
     // Start is called before the first frame update
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -69,7 +73,12 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("You win!");
+            winLoseBG.gameObject.SetActive(true);
+            winLoseText.text = "You Win!";
+            winLoseText.color = Color.black;
+
+            winLoseBG.color = Color.green;
+            
         }
     }
 
