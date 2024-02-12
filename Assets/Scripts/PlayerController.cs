@@ -53,10 +53,10 @@ public class PlayerController : MonoBehaviour
             winLoseText.color = Color.white;
             winLoseBG.color = Color.red;
 
+            StartCoroutine(LoadScene(3));
+
             health = 5;
             score = 0;
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -82,7 +82,9 @@ public class PlayerController : MonoBehaviour
             winLoseText.color = Color.black;
 
             winLoseBG.color = Color.green;
-            
+
+            StartCoroutine(LoadScene(3));
+
         }
     }
 
@@ -94,5 +96,11 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = $"Health: {health}";
+    }
+
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
