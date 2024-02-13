@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
             health = 5;
             score = 0;
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
 
     void OnTriggerEnter(Collider other)
